@@ -21,7 +21,7 @@ public class Zadanie3 {
             while (true) {
                 switch (command) {
                     case "next":
-                        String quote = getKayneQuote().getQuote();
+                        String quote = getKanyeQuote().getQuote();
                         if (!quotes.contains(quote)) {
                             quotes.add(quote);
                             System.out.println(quote);
@@ -45,7 +45,7 @@ public class Zadanie3 {
         }
     }
 
-    private static KanyeQuote getKayneQuote() throws IOException {
+    public static KanyeQuote getKanyeQuote() throws IOException {
         URL url = new URL("https://api.kanye.rest/");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
