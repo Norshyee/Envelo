@@ -1,0 +1,21 @@
+1.A. W jakim celu używa się klas abstrakcyjnych, a w jakim interfejsów?
+
+Klas abstrakcyjnych używa się dla obiektów, które są ściśle ze sobą powiązane w celu zapewnienia wspólnej definicji klasy bazowej.
+Klasy abstrakcyjne zawierają zarówno metody wraz z implementacją, jak i metody abstrakcyjne które jedynie definiują funkcjonalność (a ich implementacja następuje w klasach pochodnych).
+Klasy pochodne mogą rozszerzać tylko jedną klasę abstrakcyjną.
+
+Natomiast interfejsy wykorzystuje się w celu dostarczania wspólnej funkcjonalności niepowiązanym klasom.
+Interfejsy definiują jedynie funkcjonalności, a ich implementacja następuje w klasach które je implementują.
+Klasy pochodne mogą implementować wiele interfejsów.
+
+1.B. Czym różni się tablica od listy liniowej?
+
+Lista może mieć zmienną ilość elementów (jest dynamiczna), jak i z łatwością można dodawać, usuwać lub modyfikować poszczególne elementy.
+Jednak elementy listy znajdują się w różnych obszarach pamięci, przez co czas dostępu do nich może się różnić.
+
+Natomiast tablice zawiera ustaloną liczbę elementów tego samego typu. Możliwości dodawania, usuwania są utrudnione i nieoptymalne (z powodu kopiowania wszystkich elementów tablicy),
+ale elementy tablicy znajdują w tym samym obszarze pamięci ułożone obok siebie, przez co czas odczytu do poszczególnych elementów jest praktycznie taki sam.
+Ogólnie czas odczytu danych z tablicy jest zdecydowanie szybszy niż z listy.
+
+
+
