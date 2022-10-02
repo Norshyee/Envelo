@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 @Slf4j
@@ -13,18 +15,26 @@ public class Zadanie3 {
 
     public static void main(String[] args) {
         String command = "next";
+        List<String> quotes = new ArrayList<>();
 
-        try (Scanner scanner = new Scanner(System.in)){
+        try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
-                switch(command){
+                switch (command) {
                     case "next":
                         String quote = getKayneQuote().getQuote();
-                        System.out.println(quote);
+                        if (!quotes.contains(quote)) {
+                            quotes.add(quote);
+                            System.out.println(quote);
+                        }else{
+                            log.info("quote '{}' repeat!", quote);
+                        }
                         break;
+
                     case "exit":
                         return;
+
                     default:
-                        System.out.println("unknown command!");
+                        System.out.println("Unknown command!");
                         break;
                 }
 
@@ -43,7 +53,7 @@ public class Zadanie3 {
 
         int responseCode = conn.getResponseCode();
 
-        if(responseCode != 200) {
+        if (responseCode != 200) {
             throw new RuntimeException("HttpResponseCode: " + responseCode);
         }
 
