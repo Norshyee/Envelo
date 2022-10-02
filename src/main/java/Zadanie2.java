@@ -3,23 +3,18 @@ import java.util.stream.IntStream;
 public class Zadanie2 {
 
     public static void main(String[] args) {
-        int from = 0;
-        int to = 100;
         int x = 10;
 
-        int[] numbers = IntStream.range(from, to)
-                .map(value -> to - value + from - 1)
-                .toArray();
+        int[] numbers = IntStream.of(14, 10, 7, 3, 0).toArray();
 
-        int[] numbers2 = IntStream.of(14, 10, 7, 3, 0).toArray();
-
-        boolean result = new Zadanie2().search(numbers2, x);
+        boolean result = new Zadanie2().search(numbers, x);
         System.out.println(result);
     }
 
     /**
      * Metoda zwraca informacje czy x znajduje się w tablicy numbers.
-     * Szacowana złożoność obliczeniowa:
+     * Szacowana złożoność obliczeniowa: O(log2(n))
+     * Szacowana złożoność pamięciowa: O(1)
      *
      * @param numbers tablica liczb całkowitych do sprawdzenia
      * @param x liczba do znalezienia
@@ -33,10 +28,8 @@ public class Zadanie2 {
             return false;
         }
 
-        int middle;
-
         while(right > left + 1){
-            middle = (right + left) / 2;
+            int middle = (right + left) / 2;
 
             if(numbers[middle] < x){
                 right = middle;
