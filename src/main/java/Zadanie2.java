@@ -11,9 +11,13 @@ public class Zadanie2 {
         System.out.println(result);
     }
 
+    public boolean searchNumber(int[] numbers, int x){
+        return search(numbers, x);
+    }
+
     /**
      * Metoda zwraca informacje czy x znajduje się w tablicy numbers.
-     * Szacowana złożoność obliczeniowa: O(log2(n))
+     * Szacowana złożoność obliczeniowa: O(log n)
      * Szacowana złożoność pamięciowa: O(1)
      *
      * @param numbers tablica liczb całkowitych do sprawdzenia
@@ -28,17 +32,20 @@ public class Zadanie2 {
             return false;
         }
 
-        while(right > left + 1){
+        while(left <= right){
             int middle = (right + left) / 2;
 
+            if (numbers[middle] == x)
+                return true;
+
             if(numbers[middle] < x){
-                right = middle;
+                right = middle - 1;
             }
             else{
-                left = middle;
+                left = middle + 1;
             }
         }
 
-        return numbers[left] == x;
+        return false;
     }
 }
